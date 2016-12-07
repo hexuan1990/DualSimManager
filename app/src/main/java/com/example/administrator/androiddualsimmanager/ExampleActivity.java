@@ -6,14 +6,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.widget.Button;
 
+import DualSimUtils.SimManagerWrapper;
+
 public class ExampleActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_example);
-        Button button;
-        TelephonyManager manager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
-        manager.getSubscriberId();
+        SimManagerWrapper wrapper = SimManagerWrapper.getInstance(getApplicationContext());
+        wrapper.getMainIMSI();
+        wrapper.getSecondIMSI();
+        SimManagerWrapper.checkIsMultiSim(getApplicationContext());
     }
 }

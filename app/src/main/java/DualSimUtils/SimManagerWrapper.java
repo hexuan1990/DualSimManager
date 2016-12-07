@@ -48,7 +48,7 @@ public class SimManagerWrapper extends Base.ImplementableBase{
         return null;
     }
 
-    public final String[] getEntirImsi() {
+    private String[] getEntireIMSI() {
         HashSet<String> result = new HashSet<>();
         getSubscriberId(result);
         String[] strings = new String[result.size()];
@@ -57,7 +57,7 @@ public class SimManagerWrapper extends Base.ImplementableBase{
         return strings;
     }
 
-    public static final boolean checkisMultiSim(Context context) {
+    public static  boolean checkIsMultiSim(Context context) {
         boolean ret = false;
         try {
             ret = isMultiSimEnabledInternal(context) || isMultiSimEnabledInternal_2();
@@ -94,17 +94,17 @@ public class SimManagerWrapper extends Base.ImplementableBase{
     }
 
     public final String getSecondIMSI() {
-        String[] ids = getEntirImsi();
+        String[] ids = getEntireIMSI();
         return ids.length > 1 ? ids[1] : "";
     }
 
-    public final String getMianIMSI() {
-        String[] ids = getEntirImsi();
+    public final String getMainIMSI() {
+        String[] ids = getEntireIMSI();
         return ids[0];
     }
 
     @Override
-    public void getSubscriberId(HashSet<String> set) {
+    protected void getSubscriberId(HashSet<String> set) {
         simSubscriberId.getSubscriberId(set);
     }
 
@@ -117,7 +117,7 @@ public class SimManagerWrapper extends Base.ImplementableBase{
         return builder.toString();
     }
 
-    public static class Builder extends BaseBuilder {
+    private static class Builder extends BaseBuilder {
         private SimSubscriberId.Builder builder = new SimSubscriberId.Builder();
         private static Builder instance;
 

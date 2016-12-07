@@ -15,17 +15,17 @@ import java.util.HashSet;
 
 public class SimSubscriberId extends Base.ImplementableBase {
 
-    public MainSimSubscriberId mainSimSubscriberId;
-    public SecondSimSubscriberId secondSimSubscriberId;
+    private MainSimSubscriberId mainSimSubscriberId;
+    private SecondSimSubscriberId secondSimSubscriberId;
 
-    public SimSubscriberId(String model, MainSimSubscriberId mainSimSubscriberId, SecondSimSubscriberId secondSimSubscriberId) {
+    private SimSubscriberId(String model, MainSimSubscriberId mainSimSubscriberId, SecondSimSubscriberId secondSimSubscriberId) {
         super(model);
         this.mainSimSubscriberId = mainSimSubscriberId;
         this.secondSimSubscriberId = secondSimSubscriberId;
     }
 
     @Override
-    public void getSubscriberId(HashSet<String> set) {
+    protected void getSubscriberId(HashSet<String> set) {
 
         if (mainSimSubscriberId != null) {
             mainSimSubscriberId.getSubscriberId(set);
@@ -45,11 +45,11 @@ public class SimSubscriberId extends Base.ImplementableBase {
     public String toStringInternal() {
         StringBuilder builder = new StringBuilder();
         if (mainSimSubscriberId != null) {
-            builder.append("MainSimSubscriberId: " + mainSimSubscriberId.toString()).append("\n");
+            builder.append("MainSimSubscriberId: ").append(mainSimSubscriberId.toString()).append("\n");
         }
 
         if (secondSimSubscriberId != null) {
-            builder.append("SecondSimSubscriberId: " + secondSimSubscriberId.toString()).append("\n");
+            builder.append("SecondSimSubscriberId: ").append(secondSimSubscriberId.toString()).append("\n");
         }
         return builder.toString();
     }
@@ -71,7 +71,7 @@ public class SimSubscriberId extends Base.ImplementableBase {
         }
     }
 
-    public static class MainSimSubscriberId extends ImplementableBase {
+    private static class MainSimSubscriberId extends ImplementableBase {
 
         public MainSimSubscriberId(String model, HashSet<String> subscriberIdSet) {
             super(model);
@@ -84,7 +84,7 @@ public class SimSubscriberId extends Base.ImplementableBase {
         }
 
         @Override
-        public void getSubscriberId(HashSet<String> set) {
+        protected void getSubscriberId(HashSet<String> set) {
             set.addAll(tmpscriberIdSet);
         }
 
@@ -110,7 +110,7 @@ public class SimSubscriberId extends Base.ImplementableBase {
         }
     }
 
-    public static class SecondSimSubscriberId extends ImplementableBase {
+    private static class SecondSimSubscriberId extends ImplementableBase {
         private SecondSimId_1 secondSimId_1;
         private SecondSimId_2 secondSimId_2;
         private SecondSimId_3 secondSimId_3;
@@ -130,7 +130,7 @@ public class SimSubscriberId extends Base.ImplementableBase {
         }
 
         @Override
-        public void getSubscriberId(HashSet<String> set) {
+        protected void getSubscriberId(HashSet<String> set) {
             if (secondSimId_1 != null) {
                 set.addAll(secondSimId_1.getTmpMsg());
             }
@@ -216,7 +216,7 @@ public class SimSubscriberId extends Base.ImplementableBase {
             }
 
             @Override
-            public void getSubscriberId(HashSet<String> set) {
+            protected void getSubscriberId(HashSet<String> set) {
                 set.addAll(tmpscriberIdSet);
             }
 
@@ -271,7 +271,7 @@ public class SimSubscriberId extends Base.ImplementableBase {
             }
 
             @Override
-            public void getSubscriberId(HashSet<String> set) {
+            protected void getSubscriberId(HashSet<String> set) {
                 set.addAll(tmpscriberIdSet);
             }
 
@@ -331,7 +331,7 @@ public class SimSubscriberId extends Base.ImplementableBase {
             }
 
             @Override
-            public void getSubscriberId(HashSet<String> set) {
+            protected void getSubscriberId(HashSet<String> set) {
                 set.addAll(tmpscriberIdSet);
             }
 
@@ -416,7 +416,7 @@ public class SimSubscriberId extends Base.ImplementableBase {
             }
 
             @Override
-            public void getSubscriberId(HashSet<String> set) {
+            protected void getSubscriberId(HashSet<String> set) {
                 set.addAll(tmpscriberIdSet);
             }
 
@@ -491,7 +491,7 @@ public class SimSubscriberId extends Base.ImplementableBase {
             }
 
             @Override
-            public void getSubscriberId(HashSet<String> set) {
+            protected void getSubscriberId(HashSet<String> set) {
                 set.addAll(tmpscriberIdSet);
             }
 
@@ -533,7 +533,7 @@ public class SimSubscriberId extends Base.ImplementableBase {
             }
 
             @Override
-            public void getSubscriberId(HashSet<String> set) {
+            protected void getSubscriberId(HashSet<String> set) {
                 set.addAll(tmpscriberIdSet);
             }
 

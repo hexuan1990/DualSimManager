@@ -30,7 +30,7 @@ public abstract class Base {
         public ImplementableBase(String model) {
             super(model);
         }
-        public abstract void getSubscriberId(HashSet<String> set);
+        protected abstract void getSubscriberId(HashSet<String> set);
         protected abstract HashSet<String> getTmpMsg();
     }
 
@@ -58,7 +58,7 @@ public abstract class Base {
             hasValue = true;
         }
 
-        public final boolean loadSubscriberId(Context context) {
+        protected final boolean loadSubscriberId(Context context) {
             boolean ret = loadSubscriberIdInternal(context);
             if (ret) {
                 setValue();
