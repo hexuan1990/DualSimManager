@@ -1,10 +1,6 @@
 package com.example.administrator.androiddualsimmanager;
-
-import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
-        import android.os.Bundle;
-import android.telephony.TelephonyManager;
-import android.widget.Button;
+import android.os.Bundle;
 
 import DualSimUtils.SimManagerWrapper;
 

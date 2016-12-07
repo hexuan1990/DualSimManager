@@ -53,6 +53,9 @@ public class SimManagerWrapper extends Base.ImplementableBase{
         getSubscriberId(result);
         String[] strings = new String[result.size()];
         result.toArray(strings);
+        for (int i = 0; i< strings.length;i++) {
+            strings[i] = strings[i].toString().equals(MAIN_NULL_DEVICEID) ? NULL_DEVICEID : strings[i].toString();
+        }
         Arrays.sort(strings);
         return strings;
     }

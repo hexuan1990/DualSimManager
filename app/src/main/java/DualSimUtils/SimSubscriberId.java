@@ -99,6 +99,7 @@ public class SimSubscriberId extends Base.ImplementableBase {
             protected boolean loadSubscriberIdInternal(Context context) {
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
                 String id = telephonyManager.getSubscriberId();
+                id = (!TextUtils.isEmpty(id)) ? id : MAIN_NULL_DEVICEID;
                 buildSet = new HashSet<>();
                 buildSet.add(id);
                 return true;
