@@ -1,4 +1,4 @@
-package com.example.administrator.androiddualsimmanager;
+package com.example.administrator.dualsimmanager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
