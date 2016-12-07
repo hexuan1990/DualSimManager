@@ -31,11 +31,12 @@ public class SimManagerWrapper extends Base.ImplementableBase{
         return wrapper;
     }
 
-    public static void clear() {
+    public static void clear(Context context) {
         if (instance != null) {
             instance.clear();
             instance = null;
         }
+        Builder.getInstance(context).clear();
     }
 
     public SimManagerWrapper(String string, SimSubscriberId simSubscriberId) {
@@ -131,6 +132,10 @@ public class SimManagerWrapper extends Base.ImplementableBase{
                 }
             }
             return instance;
+        }
+
+        private void clear() {
+            instance = null;
         }
 
         public Builder init(Context context) {
