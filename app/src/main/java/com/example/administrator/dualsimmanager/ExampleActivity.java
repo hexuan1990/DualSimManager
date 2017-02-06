@@ -2,7 +2,7 @@ package com.example.administrator.dualsimmanager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import DualSimUtils.SimManagerWrapper;
+import DualSimUtils.SimManagerWraper;
 
 public class ExampleActivity extends AppCompatActivity {
 
@@ -10,9 +10,9 @@ public class ExampleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_example);
-        SimManagerWrapper wrapper = SimManagerWrapper.getInstance(getApplicationContext());
+        SimManagerWraper wrapper = SimManagerWraper.getInstance(getApplicationContext());
         wrapper.getMainIMSI();
         wrapper.getSecondIMSI();
-        SimManagerWrapper.checkIsMultiSim(getApplicationContext());
+        wrapper.getEntireIMSI();
     }
 }
